@@ -1,0 +1,5 @@
+# Campus Energy Detective - Dependencies
+# Note: server.py requires ZERO dependencies (standard Python library).
+# app.py uses Flask if you prefer running via Flask.
+
+Flask>=2.2.0

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Energy Detective</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <div>
+                <h2>Energy</h2>
+                <span>Detective</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="active">
+                <span>⌂</span> Dashboard
+            </a>
+
+            <a href="#">
+                <span>🏢</span> Rooms
+            </a>
+
+            <a href="#">
+                <span>⚡</span> Calculator
+            </a>
+
+            <a href="#">
+                <span>📊</span> Analytics
+            </a>
+
+            <a href="#">
+                <span>💡</span> Savings
+            </a>
+
+            <a href="#">
+                <span>📋</span> Reports
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+
+            <p>Campus Energy Monitor</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="welcome">GOOD MORNING 👋</p>
+                <h1>Campus Energy Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <div class="profile-icon">G</div>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Energy Manager</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- OVERVIEW CARDS -->
+        <section class="stats">
+
+            <div class="stat-card energy-card">
+                <div class="stat-top">
+                    <span>Total Energy</span>
+                    <div class="stat-icon">⚡</div>
+                </div>
+
+                <h2>1,842 <small>kWh</small></h2>
+
+                <p class="positive">↑ 8.4% <span>vs last month</span></p>
+            </div>
+
+
+            <div class="stat-card cost-card">
+                <div class="stat-top">
+                    <span>Estimated Cost</span>
+                    <div class="stat-icon">₹</div>
+                </div>
+
+                <h2>₹14,736</h2>
+
+                <p class="negative">↑ 5.2% <span>vs last month</span></p>
+            </div>
+
+
+            <div class="stat-card room-card">
+                <div class="stat-top">
+                    <span>High Usage Rooms</span>
+                    <div class="stat-icon">🔥</div>
+                </div>
+
+                <h2>04 <small>Rooms</small></h2>
+
+                <p class="warning">Needs attention</p>
+            </div>
+
+
+            <div class="stat-card saving-card">
+                <div class="stat-top">
+                    <span>Potential Savings</span>
+                    <div class="stat-icon">💡</div>
+                </div>
+
+                <h2>₹2,340</h2>
+
+                <p class="positive">↓ 15.8% possible</p>
+            </div>
+
+        </section>
+
+
+        <!-- CHART + ALERT -->
+        <section class="dashboard-grid">
+
+            <!-- CHART -->
+            <div class="panel chart-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Energy Consumption</h3>
+                        <p>Monthly campus usage</p>
+                    </div>
+
+                    <select id="chartFilter">
+                        <option>Last 6 Months</option>
+                        <option>Last 12 Months</option>
+                    </select>
+                </div>
+
+                <canvas id="energyChart"></canvas>
+
+            </div>
+
+
+            <!-- ALERT PANEL -->
+            <div class="panel alert-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Energy Alerts</h3>
+                        <p>Requires attention</p>
+                    </div>
+
+                    <span class="alert-count">4</span>
+                </div>
+
+
+                <div class="alert">
+                    <div class="alert-icon">⚠️</div>
+
+                    <div>
+                        <strong>CSE Lab - Block A</strong>
+                        <p>32% above average usage</p>
+                    </div>
+                </div>
+
+
+                <div class="alert">
+                    <div class="alert-icon">🔥</div>
+
+                    <div>
+                        <strong>Seminar Hall</strong>
+                        <p>AC usage unusually high</p>
+                    </div>
+                </div>
+
+
+                <div class="alert">
+                    <div class="alert-icon">💡</div>
+
+                    <div>
+                        <strong>ECE Lab</strong>
+                        <p>Possible lighting wastage</p>
+                    </div>
+                </div>
+
+
+                <button class="view-btn">
+                    View All Alerts →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROOM TABLE -->
+        <section class="panel rooms-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Room Energy Overview</h3>
+                    <p>Current month consumption</p>
+                </div>
+
+                <button class="view-all">
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ROOM</th>
+                            <th>TYPE</th>
+                            <th>CONSUMPTION</th>
+                            <th>COST</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <div class="room-name">
+                                    <div class="room-avatar">CL</div>
+                                    <strong>CSE Lab - A</strong>
+                                </div>
+                            </td>
+
+                            <td>Laboratory</td>
+
+                            <td>428 kWh</td>
+
+                            <td>₹3,424</td>
+
+                            <td>
+                                <span class="badge high">High</span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="room-name">
+                                    <div class="room-avatar">EL</div>
+                                    <strong>ECE Lab - B</strong>
+                                </div>
+                            </td>
+
+                            <td>Laboratory</td>
+
+                            <td>312 kWh</td>
+
+                            <td>₹2,496</td>
+
+                            <td>
+                                <span class="badge medium">Medium</span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="room-name">
+                                    <div class="room-avatar">LH</div>
+                                    <strong>Lecture Hall 2</strong>
+                                </div>
+                            </td>
+
+                            <td>Classroom</td>
+
+                            <td>216 kWh</td>
+
+                            <td>₹1,728</td>
+
+                            <td>
+                                <span class="badge normal">Normal</span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="room-name">
+                                    <div class="room-avatar">SH</div>
+                                    <strong>Seminar Hall</strong>
+                                </div>
+                            </td>
+
+                            <td>Hall</td>
+
+                            <td>389 kWh</td>
+
+                            <td>₹3,112</td>
+
+                            <td>
+                                <span class="badge high">High</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM CARDS -->
+        <section class="bottom-grid">
+
+            <div class="saving-box">
+
+                <div class="saving-content">
+
+                    <span class="mini-label">💡 SMART SUGGESTION</span>
+
+                    <h2>Reduce AC usage by 1 hour/day</h2>
+
+                    <p>
+                        You could save approximately
+                        <strong>₹1,200/month</strong>
+                        across high-consumption rooms.
+                    </p>
+
+                    <button>
+                        Analyze Savings →
+                    </button>
+
+                </div>
+
+                <div class="bulb">💡</div>
+
+            </div>
+
+
+            <div class="efficiency-box">
+
+                <span class="mini-label">CAMPUS EFFICIENCY</span>
+
+                <div class="score">
+
+                    <div class="score-number">
+                        78
+                        <span>/100</span>
+                    </div>
+
+                    <div>
+                        <strong>Good Efficiency</strong>
+                        <p>12% improvement possible</p>
+                    </div>
+
+                </div>
+
+                <div class="progress">
+                    <div></div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
